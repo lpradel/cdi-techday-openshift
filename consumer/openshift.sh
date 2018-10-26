@@ -31,7 +31,7 @@ echo "(3/4) Configure Build, ImageStream, Service and Route"
 oc process -f "$DIR"/oc/oc.yaml \
   -p NAMESPACE=$PROJECT \
   -p NAME=$APP_NAME \
-  -p PROBE=/ \
+  -p PROBE=/actuator/health \
   -p SERVER_PORT=8181 \
   -p LOG_LEVEL=debug | oc create -f - 
 
